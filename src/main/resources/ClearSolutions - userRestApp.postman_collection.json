@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "39e5fc69-b366-4679-8f95-81116b536eab",
+		"name": "ClearSolutions - userRestApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31709539"
+	},
+	"item": [
+		{
+			"name": "getUsersByDateRange",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users?dateFrom=1998-01-01&dateTo=1999-12-31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "1998-01-01"
+						},
+						{
+							"key": "dateTo",
+							"value": "1999-12-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jane.smith@example11.com\",\r\n    \"firstName\": \"eeeee\",\r\n    \"lastName\": \"Smith11\",\r\n    \"birthDate\": \"1995-04-29\",\r\n    \"address\": \"456 Elm St\",\r\n    \"phoneNumber\": \"987-654-3210\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jane.smi444th@example.com\",\r\n    \"firstName\": \"iiiiii\",\r\n    \"lastName\": \"Smith\",\r\n    \"birthDate\": \"1990-05-20\",\r\n    \"address\": \"456 Elm St\",\r\n    \"phoneNumber\": \"987-654-3210\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchUser",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jane.smi444th@example.com\",\r\n    \"firstName\": \"rrr\",\r\n    \"lastName\": \"Smith\",\r\n    \"birthDate\": \"1990-05-20\",\r\n    \"address\": \"456 Elm St\",\r\n    \"phoneNumber\": \"987-654-3210\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
