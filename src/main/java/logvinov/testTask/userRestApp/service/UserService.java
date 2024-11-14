@@ -1,15 +1,14 @@
 package logvinov.testTask.userRestApp.service;
 
 import logvinov.testTask.userRestApp.dto.UserDTO;
-
-import java.util.Date;
-import java.util.List;
+import logvinov.testTask.userRestApp.model.user.User;
 
 public interface UserService {
-    List<UserDTO> getUsersByDateOfBirthRange(Date dateFrom, Date dateTo);
+    User getUserEntityById(String id);
+    UserDTO getUserByEmail(String email);
+    User getUserEntityByEmail(String email);
     UserDTO createUser(UserDTO userDTO);
-    UserDTO putUser(Long id, UserDTO userDTO);
-    UserDTO patchUser(Long id, UserDTO userDTO);
-    void deleteUser(Long id);
-
+    UserDTO putUser(String id, UserDTO userDTO);
+    UserDTO patchUser(String id, UserDTO userDTO);
+    void deleteUser(String id);
 }

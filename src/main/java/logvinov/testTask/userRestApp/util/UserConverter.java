@@ -1,7 +1,7 @@
 package logvinov.testTask.userRestApp.util;
 
 import logvinov.testTask.userRestApp.dto.UserDTO;
-import logvinov.testTask.userRestApp.model.User;
+import logvinov.testTask.userRestApp.model.user.User;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -8,7 +8,6 @@ import logvinov.testTask.userRestApp.service.UserService;
 import logvinov.testTask.userRestApp.util.ErrorBuilder;
 import logvinov.testTask.userRestApp.util.UserPatchDTOValidator;
 import lombok.RequiredArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -16,8 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -28,12 +25,9 @@ public class UserController {
     private final UserPatchDTOValidator userPatchDTOValidator;
 
     @GetMapping()
-    public List<UserDTO> getUsersByDateOfBirthRange(@RequestParam("dateFrom")
-                                                        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dateFrom,
-                                                    @RequestParam("dateTo")
-                                                        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dateTo) {
+    public UserDTO getUsersByDateOfBirthRange(@RequestParam("email") String email) {
 
-        return userService.getUsersByDateOfBirthRange(dateFrom, dateTo);
+        return userService.getUserByEmail(email);
     }
 
     @PostMapping("/")
@@ -45,8 +39,9 @@ public class UserController {
 
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
+
     @PutMapping("/{id}")
-    public ResponseEntity<UserDTO> putUser(@PathVariable("id") Long id, @RequestBody @Valid UserDTO userDTOToUpdate,
+    public ResponseEntity<UserDTO> putUser(@PathVariable("id") String id, @RequestBody @Valid UserDTO userDTOToUpdate,
                                            BindingResult bindingResult) {
 
         checkForErrors(bindingResult);
@@ -56,7 +51,7 @@ public class UserController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<UserDTO> patchUser(@PathVariable("id") Long id, @RequestBody UserDTO userDTOToUpdate,
+    public ResponseEntity<UserDTO> patchUser(@PathVariable("id") String id, @RequestBody UserDTO userDTOToUpdate,
                                              BindingResult bindingResult) {
         userPatchDTOValidator.validate(userDTOToUpdate, bindingResult);
         checkForErrors(bindingResult);
@@ -66,7 +61,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteUser(@PathVariable String id) {
 
         userService.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

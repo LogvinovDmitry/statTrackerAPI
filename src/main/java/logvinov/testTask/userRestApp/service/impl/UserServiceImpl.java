@@ -3,7 +3,7 @@ package logvinov.testTask.userRestApp.service.impl;
 import logvinov.testTask.userRestApp.dto.UserDTO;
 import logvinov.testTask.userRestApp.exception.UserNotCreatUpdateException;
 import logvinov.testTask.userRestApp.exception.UserNotFoundException;
-import logvinov.testTask.userRestApp.model.User;
+import logvinov.testTask.userRestApp.model.user.User;
 import logvinov.testTask.userRestApp.repository.UserRepository;
 import logvinov.testTask.userRestApp.service.UserService;
 import logvinov.testTask.userRestApp.util.AgeCalculator;
@@ -11,10 +11,6 @@ import logvinov.testTask.userRestApp.util.UserConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
@@ -31,22 +27,19 @@ public class UserServiceImpl implements UserService {
         this.userConverter = userConverter;
     }
 
-
-
     @Override
-    public List<UserDTO> getUsersByDateOfBirthRange(Date dateFrom, Date dateTo) {
+    public UserDTO getUserByEmail(String email) {
 
-        if (!dateFrom.before(dateTo)) {
-            throw new IllegalStateException("The date range must be specified from the earliest date to the" +
-                    "latest date");
-        }
-
-        List<User> userByDateRange = userRepository.findUsersByBirthDateBetween(dateFrom, dateTo);
-
-        return userByDateRange.stream()
-                .map(user -> userConverter.convertToUserDTO(user))
-                .collect(Collectors.toList());
-
+        User user = userRepository.findByEmail(email).orElseThrow(UserNotFoundException::new);
+        return userConverter.convertToUserDTO(user);
+    }
+    @Override
+    public User getUserEntityByEmail(String email) {
+        return userRepository.findByEmail(email).orElseThrow(UserNotFoundException::new);
+    }
+    @Override
+    public User getUserEntityById(String id) {
+        return userRepository.findById(id).orElseThrow(UserNotFoundException::new);
     }
 
     @Transactional
@@ -66,7 +59,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public UserDTO putUser(Long id, UserDTO userDTOToUpdate) {
+    public UserDTO putUser(String id, UserDTO userDTOToUpdate) {
 
         userRepository.findById(id).orElseThrow(UserNotFoundException::new);
 
@@ -78,12 +71,11 @@ public class UserServiceImpl implements UserService {
         userDTOToUpdate.setId(id);
         User updatedUser = userRepository.save(userConverter.convertToUser(userDTOToUpdate));
         return userConverter.convertToUserDTO(updatedUser);
-
     }
 
     @Transactional
     @Override
-    public UserDTO patchUser(Long id, UserDTO userDTOToUpdate) {
+    public UserDTO patchUser(String id, UserDTO userDTOToUpdate) {
 
         User userToUpdate = userRepository.findById(id).orElseThrow(UserNotFoundException::new);
 
@@ -95,12 +87,11 @@ public class UserServiceImpl implements UserService {
         userConverter.updateUserFromDTO(userDTOToUpdate, userToUpdate);
         User updatedUser = userRepository.save(userToUpdate);
         return userConverter.convertToUserDTO(updatedUser);
-
     }
 
     @Transactional
     @Override
-    public void deleteUser(Long id) {
+    public void deleteUser(String id) {
         userRepository.findById(id).orElseThrow(UserNotFoundException::new);
         userRepository.deleteById(id);
     }
