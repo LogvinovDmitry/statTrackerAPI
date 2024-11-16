@@ -69,6 +69,4 @@ public class MongoInitializer implements CommandLineRunner {
             throw new RuntimeException("Ошибка при чтении файла: " + resource.getFilename(), e);
         }
     }
-
-
 }

@@ -30,16 +30,6 @@ public class UserController {
         return userService.getUserByEmail(email);
     }
 
-    @PostMapping("/")
-    public ResponseEntity<UserDTO> createUser(@RequestBody @Valid UserDTO userDTO,
-                                              BindingResult bindingResult) {
-
-        checkForErrors(bindingResult);
-        UserDTO createdUser = userService.createUser(userDTO);
-
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<UserDTO> putUser(@PathVariable("id") String id, @RequestBody @Valid UserDTO userDTOToUpdate,
                                            BindingResult bindingResult) {
@@ -94,11 +84,19 @@ public class UserController {
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler
+    private ResponseEntity<UserErrorResponse> handleException(IllegalArgumentException e) {
+        UserErrorResponse response = new UserErrorResponse(
+                e.getMessage(),
+                LocalDateTime.now()
+        );
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
     private static void checkForErrors(BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             String errors = ErrorBuilder.buildErrors(bindingResult);
             throw new UserNotCreatUpdateException(errors);
         }
     }
-
 }

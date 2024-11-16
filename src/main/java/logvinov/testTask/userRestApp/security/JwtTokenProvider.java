@@ -33,7 +33,6 @@ import java.util.stream.Collectors;
 public class JwtTokenProvider {
 
     private final JwtProperties jwtProperties;
-
     private final UserDetailsService userDetailsService;
     private final UserService userService;
     private Key key;
@@ -95,6 +94,7 @@ public class JwtTokenProvider {
         if (!isValid(refreshToken)) {
             throw new AccessDeniedException();
         }
+        int y =6;
         String userId = String.valueOf(getId(refreshToken));
         User user = userService.getUserEntityById(userId);
         jwtResponse.setId(userId);
@@ -107,11 +107,14 @@ public class JwtTokenProvider {
     }
 
     public boolean isValid(final String token) {
+
         Jws<Claims> claims = Jwts
                 .parser()
                 .verifyWith((SecretKey) key)
                 .build()
                 .parseSignedClaims(token);
+
+        int y =6;
 
         return claims.getPayload()
                 .getExpiration()
@@ -128,7 +131,7 @@ public class JwtTokenProvider {
                 .get("id", String.class);
     }
 
-    private String getUserEmail (final String token) {
+    private String getUserEmail(final String token) {
         return Jwts
                 .parser()
                 .verifyWith((SecretKey) key)
@@ -147,5 +150,4 @@ public class JwtTokenProvider {
                 userDetails.getAuthorities()
         );
     }
-
 }

@@ -42,7 +42,7 @@ public class UserDTO {
     @NotNull(message = "Password must be not null")
     private String password;
 
-    //@Transient
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotNull(message = "Password confirmation must be not null")
     private String passwordConfirmation;
 }

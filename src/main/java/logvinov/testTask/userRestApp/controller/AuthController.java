@@ -2,6 +2,7 @@ package logvinov.testTask.userRestApp.controller;
 
 
 import logvinov.testTask.userRestApp.dto.UserDTO;
+import logvinov.testTask.userRestApp.dto.auth.JwtRefreshTokenRequest;
 import logvinov.testTask.userRestApp.dto.auth.JwtRequest;
 import logvinov.testTask.userRestApp.dto.auth.JwtResponse;
 import logvinov.testTask.userRestApp.service.AuthService;
@@ -25,19 +26,18 @@ public class AuthController {
     @PostMapping("/login")
     public JwtResponse login(@Validated @RequestBody final JwtRequest loginRequest) {
 
-        int f = 5;
         return authService.login(loginRequest);
     }
 
     @PostMapping("/register")
     public UserDTO register(@Validated @RequestBody final UserDTO userDTO) {
-        int f = 5;
+
         return userService.createUser(userDTO);
     }
 
     @PostMapping("/refresh")
-    public JwtResponse refresh(@RequestBody final String refreshToken) {
+    public JwtResponse refresh(@RequestBody JwtRefreshTokenRequest refreshTokenRequest) {
 
-        return authService.refresh(refreshToken);
+        return authService.refresh(refreshTokenRequest.getRefreshToken());
     }
 }

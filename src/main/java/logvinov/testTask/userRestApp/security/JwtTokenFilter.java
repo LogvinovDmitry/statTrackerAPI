@@ -27,14 +27,13 @@ public class JwtTokenFilter extends GenericFilterBean {
 
 //        HttpServletRequest request = (HttpServletRequest) servletRequest;
 //
-//        // Проверка, является ли запрос публичным (например, к /api/v1/auth/**)
+//        // Проверка публичных маршрутов
 //        String requestURI = request.getRequestURI();
 //        if (requestURI.startsWith("/api/v1/auth")) {
 //            // Пропустить фильтр для разрешенных маршрутов
 //            filterChain.doFilter(servletRequest, servletResponse);
 //            return;
 //        }
-
         String bearerToken = ((HttpServletRequest) servletRequest).getHeader("Authorization");
 
         if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
