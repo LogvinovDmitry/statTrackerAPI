@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "764f3fae-44b8-460f-b382-1f032682932a",
+		"name": "amazonTask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31709539"
+	},
+	"item": [
+		{
+			"name": "getByDateInSalesAndTrafficByDate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5lLnNtaXRoQGV4YW1wbGU2NjYuY29tIiwiaWQiOiI2NzM4ZmE0Yzc1OGQ3ZDA4MWQ4YmVlODUiLCJmaXJzdE5hbWUiOiJlZWtrZWVlIiwibGFzdE5hbWUiOiJTbWl0aDExMjIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNDY5MTc4NzM0NX0.iEd4FB5U1Q_iRsnLLmF_FhjGVGWpiOGVjqQXnp7B8O6GpZWsRKSYVlwzjmnOtmPC",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reports/by-date?date=2024-02-15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reports",
+						"by-date"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2024-02-15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getByParentAsinInSalesAndTrafficByAsin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5lLnNtaXRoQGV4YW1wbGU2NjYuY29tIiwiaWQiOiI2NzM4ZmE0Yzc1OGQ3ZDA4MWQ4YmVlODUiLCJmaXJzdE5hbWUiOiJlZWtrZWVlIiwibGFzdE5hbWUiOiJTbWl0aDExMjIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNDY5MTc4NzM0NX0.iEd4FB5U1Q_iRsnLLmF_FhjGVGWpiOGVjqQXnp7B8O6GpZWsRKSYVlwzjmnOtmPC",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reports/by-asin?asin=B07JWCZKSJ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reports",
+						"by-asin"
+					],
+					"query": [
+						{
+							"key": "asin",
+							"value": "B07JWCZKSJ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllSalesAndTrafficByAsin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5lLnNtaXRoQGV4YW1wbGU2NjYuY29tIiwiaWQiOiI2NzM4ZjdkY2JlMDhhZTI3ZGE5NzgyMWIiLCJmaXJzdE5hbWUiOiJlZWtrZWVlIiwibGFzdE5hbWUiOiJTbWl0aDExMjIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNDY5MTc4NjcyNH0.XCDMxw5WURpUA-dW2Kr3D0pv271edTgi8M_2qVCEz7KN0DpEfit2Jg4uckMz_PN-",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reports/all-by-asin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reports",
+						"all-by-asin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllSalesAndTrafficByDate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5lLnNtaXRoQGV4YW1wbGU2NjYuY29tIiwiaWQiOiI2NzM4ZjdkY2JlMDhhZTI3ZGE5NzgyMWIiLCJmaXJzdE5hbWUiOiJlZWtrZWVlIiwibGFzdE5hbWUiOiJTbWl0aDExMjIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNDY5MTc4NjcyNH0.XCDMxw5WURpUA-dW2Kr3D0pv271edTgi8M_2qVCEz7KN0DpEfit2Jg4uckMz_PN-",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reports/all-by-date",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reports",
+						"all-by-date"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getByParentAsinListInSalesAndTrafficByAsin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5lLnNtaXRoQGV4YW1wbGU2NjYuY29tIiwiaWQiOiI2NzM4ZmE0Yzc1OGQ3ZDA4MWQ4YmVlODUiLCJmaXJzdE5hbWUiOiJlZWtrZWVlIiwibGFzdE5hbWUiOiJTbWl0aDExMjIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNDY5MTc4NzM0NX0.iEd4FB5U1Q_iRsnLLmF_FhjGVGWpiOGVjqQXnp7B8O6GpZWsRKSYVlwzjmnOtmPC",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reports/by-asin-list?asins=B07JWCZKSJ,B09ZDDDS1X,B0B14B89VH",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reports",
+						"by-asin-list"
+					],
+					"query": [
+						{
+							"key": "asins",
+							"value": "B07JWCZKSJ,B09ZDDDS1X,B0B14B89VH"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getByDateRangeInSalesAndTrafficByDate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5lLnNtaXRoQGV4YW1wbGU2NjYuY29tIiwiaWQiOiI2NzM4ZjdkY2JlMDhhZTI3ZGE5NzgyMWIiLCJmaXJzdE5hbWUiOiJlZWtrZWVlIiwibGFzdE5hbWUiOiJTbWl0aDExMjIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNDY5MTc4NjcyNH0.XCDMxw5WURpUA-dW2Kr3D0pv271edTgi8M_2qVCEz7KN0DpEfit2Jg4uckMz_PN-",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reports/by-date-range?startDate=2024-02-14&endDate=2024-02-16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reports",
+						"by-date-range"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2024-02-14"
+						},
+						{
+							"key": "endDate",
+							"value": "2024-02-16"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jane.smith@example.com\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Smith\",\r\n    \"birthDate\": \"1995-04-29\",\r\n    \"address\": \"456 Elm St\",\r\n    \"phoneNumber\": \"987-654-3210\",\r\n    \"password\": \"123\",\r\n    \"passwordConfirmation\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jane.smith@example.com\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5lLnNtaXRoQGV4YW1wbGUyMjIuY29tIiwiaWQiOiI2NzM2ODc4ZjM5NTU3MzQ0MzRiYmMzYWEiLCJleHAiOjIyMzk1MDUzMTY4NjI3OH0.rKbS-DRPmFamqiwjIlqDnYDz-UC8IVbFbOF1TEbj4f7Y_whfdstT57mhk9_kdafl\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/auth/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"refresh"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserByEmail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users?email=jane.smith@example.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "jane.smith@example.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5lLnNtaTQ0NHRoQGV4YW1wbGU4ODg4LmNvbSIsImlkIjoiNjczOGNiNDJiMGE5ODE1ZmJkYWY4YzFkIiwiZmlyc3ROYW1lIjoiaWlpaWlpIiwibGFzdE5hbWUiOiJTbWl0aCIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJleHAiOjE0NjkxNzgxMjI1fQ.NT5jc3If7nC5haZCGw5L5Bfhtz-hOu7oZ6JG0RQT5MaWjjHVPH75ztDkFdJgcYXH",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jane.smi444th@example8888.com\",\r\n    \"firstName\": \"iiiiii\",\r\n    \"lastName\": \"Smith\",\r\n    \"birthDate\": \"1990-05-20\",\r\n    \"address\": \"456 Elm St\",\r\n    \"phoneNumber\": \"987-654-3210\",\r\n    \"password\": \"kkk4\",\r\n    \"passwordConfirmation\": \"kkk4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/6738cb42b0a9815fbdaf8c1d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"6738cb42b0a9815fbdaf8c1d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5lLnNtaXRoQGV4YW1wbGU2NjYuY29tIiwiaWQiOiI2NzM4ZWNiMmZkMDBmNjYzZmVlNjY4NzUiLCJmaXJzdE5hbWUiOiJlZWtrZWVlIiwibGFzdE5hbWUiOiJTbWl0aDExMjIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNDY5MTc4MzkxMX0.ha1F0sUCIyPiJxNWdBR1EqfTOR_10_keWtncdny_NpT3xjsxSBqYxqusywvVumdi",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"firstName\": \"rrryyyyy\",\r\n    \"lastName\": \"Smith3333\",\r\n    \"birthDate\": \"1990-05-20\",\r\n    \"address\": \"456 Elm St\",\r\n    \"phoneNumber\": \"987-654-3210\",\r\n    \"password\": \"kkk5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/6738ecb2fd00f663fee66875",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"6738ecb2fd00f663fee66875"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5lLnNtaTQ0NHRoQGV4YW1wbGUuY29tIiwiaWQiOiI2NzM4ZTVlYmExMjVmZjViZmQwZTViNjMiLCJmaXJzdE5hbWUiOiJycnJlIiwibGFzdE5hbWUiOiJTbWl0aDMzMzMiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNDY5MTc4MjYzOX0.6g_humXUbIgFb624maGvjpO8c56o5sN05o3tRiePPqMy0ovOd8IJV5wDUIBAasWY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/6738e5eba125ff5bfd0e5b63",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"6738e5eba125ff5bfd0e5b63"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
