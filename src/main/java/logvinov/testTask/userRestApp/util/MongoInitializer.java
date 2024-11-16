@@ -40,11 +40,11 @@ public class MongoInitializer implements CommandLineRunner {
         updateDatabase();
     }
 
-    @Scheduled(fixedRate = 4000)
+    @Scheduled(fixedRate = 600000, initialDelay = 600000)
     public void updateDatabase() {
         Resource resource = resourceLoader.getResource("file:./test_report.json");
 
-        log.info("Заходим сюда по расписанию");
+        log.info("Scheduled check for updates.");
 
         try (InputStream inputStream = resource.getInputStream()) {
 
@@ -52,7 +52,7 @@ public class MongoInitializer implements CommandLineRunner {
             long currentModifiedTime = file.lastModified();
 
             if (currentModifiedTime > lastModifiedTime) {
-                log.info("Заходим сюда, если файл изменился");
+                log.info("Detected changes in the file. Updating database...");
                 JsonNode jsonNode = objectMapper.readTree(inputStream);
                 Report report = objectMapper.treeToValue(jsonNode, Report.class);
 
